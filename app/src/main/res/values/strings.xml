@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">kokeilu</string>
+    <string name="add">add</string>
+    <string name="name">Name</string>
+    <string name="kirjoita_t_h_n">Kirjoita tähän</string>
+    <string name="l_kkeen_nimi">Lääkkeen nimi</string>
+    <string name="view_data">VIEW DATA</string>
+    <string name="delete">DELETE</string>
+    <string name="save">SAVE</string>
+</resources>

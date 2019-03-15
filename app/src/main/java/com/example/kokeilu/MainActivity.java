@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
    DatabaseHelper  mDatabaseHelper;
    private Button btnAdd, btnViewData;
-   private EditText editText;
+   private EditText editText, editVahvuus, editMaara;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +25,23 @@ public class MainActivity extends AppCompatActivity {
         btnViewData = findViewById(R.id.btnViewData);
         mDatabaseHelper = new DatabaseHelper(this);
         btnAdd = findViewById(R.id.btnAdd);
+        editVahvuus = findViewById(R.id.editVahvuus);
+        editMaara = findViewById(R.id.editMaara);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String newEntry = editText.getText().toString();
-                if (editText.length() != 0){
-                    AddData(newEntry);
+                String vahvuus = editVahvuus.getText().toString();
+                String maara = editMaara.getText().toString();
+
+                if (editText.length() != 0 || editMaara.length() != 0 || editVahvuus.length() != 0){
+                    AddData(newEntry, vahvuus, maara);
                     editText.setText("");
-                }else {
+                    editVahvuus.setText("");
+                    editMaara.setText("");
+                }
+                else {
                   Toast.makeText(getApplicationContext(),"You have to put some text here!",Toast.LENGTH_LONG).show();
                 }
             }
@@ -47,16 +55,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    public void AddData(String newEntry) {
-        boolean insertData = mDatabaseHelper.addData(newEntry);
+        public void AddData(String newEntry, String vahvuus, String maara) {
+                boolean insertData = mDatabaseHelper.addData(newEntry, vahvuus, maara);
 
-        if (insertData) {
-            Toast.makeText(getApplicationContext(),"Data successfully inserted!",Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(getApplicationContext(),"Something went wrong.",Toast.LENGTH_LONG).show();
+                if (insertData) {
+                    Toast.makeText(getApplicationContext(),"Data successfully inserted!",Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(),"Something went wrong.",Toast.LENGTH_LONG).show();
+                }
         }
-}
-        /**
+                /**
          * customizable toast
          * @param message
          */

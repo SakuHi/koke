@@ -41,9 +41,12 @@ public class ListDataActivity extends AppCompatActivity {
         Cursor data = mDatabaseHelper.getData();
         ArrayList<String>listData = new ArrayList<>();
         while(data.moveToNext()){
-            //get the value from the database in column 1
+            //get the value from the database in column 1, 2 and 3
             //then add it to the ArrayList
             listData.add(data.getString(1));
+            listData.add(data.getString(2));
+             listData.add(data.getString(3));
+
         }
         //Create the list adapter and set the adapter
         ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
@@ -56,6 +59,13 @@ public class ListDataActivity extends AppCompatActivity {
                 String name = adapterView.getItemAtPosition(i).toString();
                 Log.d(TAG, "onItemClick: You clicked on " + name);
 
+                String maara = adapterView.getItemAtPosition(i).toString();
+                Log.d(TAG, "onItemClick: You clicked on " + maara);
+
+                String vahvuus = adapterView.getItemAtPosition(i).toString();
+                Log.d(TAG, "onItemClick: You clicked on " + vahvuus);
+
+
                 Cursor data = mDatabaseHelper.getItemID(name); //get the id associated with the name
                 int itemID = -1;
                 while(data.moveToNext()) {
@@ -66,6 +76,8 @@ public class ListDataActivity extends AppCompatActivity {
                     Intent editScreenIntent = new Intent(ListDataActivity.this, EditDataActivity.class);
                     editScreenIntent.putExtra("id",itemID);
                     editScreenIntent.putExtra("name",name);
+                    editScreenIntent.putExtra("maara",maara);
+                    editScreenIntent.putExtra("vahvuus",vahvuus);
                     startActivity(editScreenIntent);
                 }
                 else

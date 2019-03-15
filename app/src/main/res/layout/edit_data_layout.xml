@@ -7,38 +7,54 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:textAlignment="center"
-        android:inputType="text"
-        android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/editable_item"
-        android:layout_marginTop="78dp"/>
+            android:textAlignment="center"
+            android:inputType="text"
+            android:ems="10"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editable_item2"
+            android:layout_marginTop="46dp"/>
+    <EditText
+            android:textAlignment="center"
+            android:inputType="text"
+            android:ems="10"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editable_item"
+            android:layout_marginTop="105dp"/>
 
     <LinearLayout
 
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:weightSum="100"
-        android:layout_below="@+id/editable_item"
-        >
+            android:weightSum="100"
+            android:layout_below="@+id/editable_item2"
+            android:layout_marginTop="60dp" android:layout_width="match_parent"
+            android:layout_height="@android:dimen/notification_large_icon_height"
+            android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/delete" />
+                android:id="@+id/btnDelete"
+                android:layout_width="210dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:text="@string/delete"/>
 
         <Button
-            android:id="@+id/btnSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/save" />
+                android:id="@+id/btnSave"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:text="@string/save"/>
 
     </LinearLayout>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="352dp" android:layout_above="@+id/editable_item2"
+            android:layout_marginBottom="59dp"/>
+
+
+
 </RelativeLayout>
